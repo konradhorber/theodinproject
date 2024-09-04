@@ -49,3 +49,11 @@ const pMeToo = document.createElement("p");
 pMeToo.textContent = "ME TOO!";
 
 blackPinkDiv.appendChild(pMeToo);
+
+
+// events part
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", function (e) {
+    e.target.style.background = "blue";
+  });
