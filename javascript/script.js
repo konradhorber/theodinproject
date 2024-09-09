@@ -22,6 +22,56 @@ function filterRangeInPlace(array, lowerInclusiveBound, higherInclusiveBound) {
     }
 }
 
-let array = [5, 2, 1, -10, 8];
+function copySorted(array) {
+    return array.slice().sort();      
+}
 
-console.log(array);
+function transformPropertiesToArray(objectArray, propertyKey) {
+    let names = objectArray.map((item) => item[propertyKey]);
+    return names;
+}
+
+function transformMultiplePropertiesToArray(objectArray) {
+    let propertiesArray = objectArray.map((item) => ({
+        fullName: item.name.concat(" ", item.surname), id: item.id
+    }));
+    return propertiesArray;
+}
+
+
+
+function sortByAge(users) {
+    users.sort((a, b) => a.age - b.age);
+}
+
+function shuffle(array) {
+    let shuffledArray = []
+
+    while(0 < array.length) {
+        shuffledArray = shuffledArray.concat(
+            array.splice(
+                getRandomInt(0, array.length - 1),
+                1)
+        );
+    };
+    return shuffledArray;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function getAverageAge(users) {
+    const sumAge = users.reduce(
+        (accumulator, currentItem) => 
+        accumulator + currentItem.age,
+        0
+    );
+    return sumAge/users.length 
+}
+
+function returnUniqueItems(array) {
+    for 
+}
