@@ -1,41 +1,27 @@
-let user = {
-    name: "John",
-    surname: "Smith",
-};
-
-user.name = "Pete";
-
-delete user.name;
-
-let schedule = {};
-
-function isEmpty(obj) {
-    for(let key in obj) {
-        return false;
-    };
-    return true;
+function camelize(string) {
+    let array = string.split("-");
+    array = array.map((string) => capitalizeFirstLetter(string));
+    return array.join("");
 }
 
-let salaries = {
-  }
-
-let sum = 0;
-for(let key in salaries) {
-    sum += salaries[key];
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-let menu = {
-    width: 200,
-    height: 300,
-    title: "my menu",
-};
+function filterRange(array, lowerInclusiveBound, higherInclusiveBound) {
+    return array.filter((number) => 
+        number >= lowerInclusiveBound && number <= higherInclusiveBound);
+}
 
-function multiplyNumeric(obj) {
-    for (let key in obj) {
-        if(Number.isInteger(obj[key])) {
-            obj[key] = obj[key] * 2;
+function filterRangeInPlace(array, lowerInclusiveBound, higherInclusiveBound) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] < lowerInclusiveBound || array[i] > higherInclusiveBound) {
+            array.splice(i,1);
+            i--;
         }
     }
 }
 
-multiplyNumeric(menu);
+let array = [5, 2, 1, -10, 8];
+
+console.log(array);
