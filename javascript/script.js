@@ -72,6 +72,26 @@ function getAverageAge(users) {
     return sumAge/users.length 
 }
 
+
 function returnUniqueItems(array) {
-    for 
+    let uniqueArray = [];
+    array.forEach(item => {
+        if(uniqueArray.includes(item) == false) {
+            uniqueArray = uniqueArray.concat(item);
+        }
+    });
+    return uniqueArray;
+}
+
+
+let users = [
+    {id: 'john', name: "John Smith", age: 20},
+    {id: 'ann', name: "Ann Smith", age: 24},
+    {id: 'pete', name: "Pete Peterson", age: 31},
+];
+
+function groupById(array) {
+    return array.reduce((accumulator, currentItem) => {
+        accumulator = {...accumulator, [currentItem.id]: currentItem };
+    },{});
 }
